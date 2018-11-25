@@ -4,3 +4,4 @@ git is changing
 ho
 change again
 again and again
+creating a new branch is quick & simple.
