@@ -6,4 +6,8 @@ change again
 again and again
 creating a new branch is quick and simple.
 change
+<<<<<<< Updated upstream
 try again
+=======
+try stash
+>>>>>>> Stashed changes
