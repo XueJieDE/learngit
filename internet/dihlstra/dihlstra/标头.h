@@ -6,25 +6,27 @@ using namespace std;
 class nod{
 public:
 	int value;
+	int next;
 	bool visit;
 	nod() {
 		value = 0;
+		next = 0;
 		visit = false;
 	}
 };
 class graph {
+public:
 	int vexnum;
 	int edge;
 	int **arc;
 	nod *dis;
-public:
 	graph(int vexnum,int edge);
-	~graph();
+	~ graph();
 	bool check_edge_value(int start, int end, int weigh);
 	void creat();
 	void dijkstra(int begin);
-	void delete_line(int begin, int end);
-	void delete_point(int point);
+	void delete_line();
+	void delete_point();
 	void add_point();
 	void add_line();
 };

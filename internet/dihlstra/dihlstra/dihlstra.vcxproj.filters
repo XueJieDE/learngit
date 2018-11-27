@@ -18,9 +18,15 @@
     <ClInclude Include="标头.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="函数.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="class.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="源.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
