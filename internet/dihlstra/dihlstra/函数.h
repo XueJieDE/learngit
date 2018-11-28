@@ -28,7 +28,7 @@ void show(graph &a) {
 	cout << "输入节点编号" << endl;
 	int point = 0;
 	cin >> point;
-	a.dijkstra(point);
+	a.dijkstra(point);//找到最短路径
 	cout << "节点编号  跳数  下一跳编号" << endl;
 	for (int i = 0; i < a.vexnum; i++) {
 		if (a.dis[i].value < INT_MAX&&i != point-1)cout << i+1 <<"           "<< a.dis[i].value <<"           "<< a.dis[i].next+1 << endl;
@@ -41,6 +41,7 @@ void show(graph &a) {
 void menu(graph &a) {
 	while (1) {
 		system("cls");
+		cout << "课程报告" << endl;
 		cout << "1、查看路由表" << endl;
 		cout << "2、修改" << endl;
 		cout << "3、退出" << endl;
