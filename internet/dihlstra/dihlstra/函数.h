@@ -2,13 +2,14 @@
 #define AND
 #include "标头.h"
 #include<process.h>
+string str(10, ' ');
 void table(graph &a) {
 	system("cls");
-	cout << "1、添加节点" << endl;
-	cout << "2、删除节点" << endl;
-	cout << "3、添加边" << endl;
-	cout << "4、删除边" << endl;
-	cout << "5、退出" << endl;
+	cout <<str<< "1、添加节点" << endl;
+	cout <<str<< "2、删除节点" << endl;
+	cout <<str<< "3、添加边" << endl;
+	cout <<str<< "4、删除边" << endl;
+	cout <<str<< "5、退出" << endl;
 	int choice = 0;
 	cin >> choice;
 	while (!(choice > 0 && choice < 5)) {
@@ -29,9 +30,9 @@ void show(graph &a) {
 	int point = 0;
 	cin >> point;
 	a.dijkstra(point);//找到最短路径
-	cout << "节点编号  跳数  下一跳编号" << endl;
+	cout <<str<< "节点编号  权值  下一跳编号" << endl;
 	for (int i = 0; i < a.vexnum; i++) {
-		if (a.dis[i].value < INT_MAX&&i != point-1)cout << i+1 <<"           "<< a.dis[i].value <<"           "<< a.dis[i].next+1 << endl;
+		if (a.dis[i].value < INT_MAX&&i != point-1)cout <<str<< i+1 <<"           "<< a.dis[i].value <<"           "<< a.dis[i].next+1 << endl;
 	}
 	char q;
 	cout << "输入任意字符以退出" << endl;
@@ -41,10 +42,10 @@ void show(graph &a) {
 void menu(graph &a) {
 	while (1) {
 		system("cls");
-		cout << "课程报告" << endl;
-		cout << "1、查看路由表" << endl;
-		cout << "2、修改" << endl;
-		cout << "3、退出" << endl;
+		cout <<str<< "   课程报告" << endl;
+		cout <<str<< "1、查看路由表" << endl;
+		cout <<str<< "2、修改" << endl;
+		cout <<str<< "3、退出" << endl;
 		int choice = 0;
 		cin >> choice;
 		while (!(choice > 0 && choice < 5)) {

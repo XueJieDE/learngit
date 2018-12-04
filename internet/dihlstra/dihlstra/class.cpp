@@ -28,7 +28,7 @@ void graph::creat() {
 	int count = 0;
 	ifstream file("data.txt",ios::out);
 	if (file){
-		while (count <= this->edge) {
+		while (count < this->edge) {
 			file>> start >> end >> weight;
 			//while (!check_edge_value(start, end, weight))cin >> start >> end >> weight;
 			arc[start - 1][end - 1] = weight;
@@ -39,27 +39,32 @@ void graph::creat() {
 	file.close();
 }
 void graph::dijkstra(int begin) {
-	int count = 0;
+	int count = 1;
 	for (int i = 0; i < this->vexnum; ++i) {
 		dis[i].value=arc[begin-1][i];
 		dis[i].next = i;
-		dis->visit = false;
+		dis[i].visit = false;
 	}
 	dis[begin - 1].value = 0;
 	dis[begin - 1].visit = true;
-	while(count!=this->vexnum){
-		int min = INT_MAX;
+	while(count<this->vexnum){
+		int min =begin-1;
+		int j = INT_MAX;
 		for (int i = 0; i < this->vexnum; ++i) {
-			if (dis[i].value < dis[min].value&&dis[i].visit == false)min = i;
+			if ((dis[i].value <= j)&&(dis[i].visit != true)) { min = i; j=dis[min].value ; }
 		}
 		dis[min].visit = true;
 		++count;
 		for (int i = 0; i < this->vexnum; ++i) {
-			if (min<this->vexnum&&dis[i].visit == false&& arc[min][i]!=INT_MAX&&dis[i].value > dis[min].value + arc[min][i]) {
-				dis[i].value = dis[min].value + arc[min][i];
-				arc[begin - 1][i] = dis[i].value;
-				arc[i][begin - 1] = dis[i].value;
+			if (i == (begin - 1))continue;
+			if (dis[i].value == INT_MAX&&arc[min][i]!=INT_MAX) {
+				dis[i].value = dis[min].value+arc[min][i];
 				dis[i].next = dis[min].next;
+			}
+			if (dis[i].visit == false && arc[min][i] != INT_MAX &&dis[i].value > (dis[min].value + arc[min][i])) {
+				
+					dis[i].value = (dis[min].value + arc[min][i]);
+					dis[i].next = dis[min].next;
 			}
 		}
 	}
