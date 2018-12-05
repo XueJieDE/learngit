@@ -42,6 +42,8 @@ void show(graph &a) {
 void menu(graph &a) {
 	while (1) {
 		system("cls");
+		cout << str << "维力" << endl;
+
 		cout <<str<< "   课程报告" << endl;
 		cout <<str<< "1、查看路由表" << endl;
 		cout <<str<< "2、修改" << endl;
